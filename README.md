@@ -600,7 +600,7 @@ Existem ainda no GitHub, diferentes opções de merge. Sendo:
 + [GitHub Features](https://github.com/features)
 
 ## Autores
-| [<img src="assets/images/profile.jpg" width=115 > <br> <sub> Pedro Kall </sub>](https://github.com/pedrokall) | [<img src="assets\images\lucasProfile.png" width=110 > <br> <sub> Pedro Kall </sub>](https://github.com/LuscaLN) | 
+| [<img src="assets/images/profile.jpg" width=115 > <br> <sub> Pedro Kall </sub>](https://github.com/pedrokall) | [<img src="assets\images\lucasProfile.png" width=110 > <br> <sub> Lucas Lima </sub>](https://github.com/LuscaLN) | 
 | :---: | :---: |
 
 
