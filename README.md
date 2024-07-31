@@ -238,3 +238,148 @@ Forkar um repositório é uma pratica bem comum. Pois, permite colaborar em proj
             <img width= "40%" height = "auto" alt= "siteOption" title="siteOption" src="assets\gifs\forking.gif"/>&nbsp;
             <img width= "42%" height = "auto" alt= "newSSH" title="newSSH" src="assets\gifs\creatingFork.gif"/>
         </div>
+2. Clonar o Fork para o seu Computador:
+    + Após forkar o repositório, clone-o para seu ambiente de desenvolvimento local:
+        ```
+        git clone https://github.com/seu-usuario/nome-do-repositorio.git
+        ```
+3. Configurar o Repositório Original como Upstream:
+    + Para manter seu fork atualizado com o repositório original, adicione-o como um repositório remoto chamado upstream:
+        ```
+        cd nome-do-repositorio
+        git remote add upstream https://github.com/original-usuario/original-repositorio.git
+
+        ```
+4. Manter seu Fork atualizado:
+    + Para buscar as últimas mudanças do repositório original e integrá-las ao seu fork:
+        ```
+        git fetch upstream
+        git checkout main
+        git merge upstream/main
+        ```
+5. Fazer Mudanças e Enviar Pull Requests:
+    + Faça suas alterações e commits em branches no seu fork.
+    + Envie um pull request do seu fork para o repositório original, detalhando as mudanças e o motivo delas.
+
+### Pull requests: como criar e gerenciar?
+
+#### Criar e gerenciar pull requests (PRs) é um aspecto crucial do fluxo de trabalho colaborativo em Git. Agora, como criar um pull request?
+<div align="center">
+    <img width= "60%" src= "assets\images\pullRSexample.png">
+</div>
+
+1. Depois de todo passo-a-passo da criação de um fork, primeiramente, vá para o seu repositório fork no GitHub.
+2. Clique no botão "Compare & pull request" que aparece após você enviar a branch.
+<div align="center">
+    <img width= "60%" src= "assets\images\github-create-new-pull-request.png">
+</div>
+3. Preencha o título e a descrição do PR, detalhando as mudanças feitas e o motivo delas.
+4. Escolha a branch de destino no repositório original (geralmente main ou master).
+5. Clique em "Create pull request".
+
+#### Gerenciando um Pull Request
+
++ Um fluxograma que representa muito bem o gerenciamento de pull requests pode ser o exemplo a seguir:
+<div align="center">
+    <img width= "100%" src= "assets\images\prsManagement.png">
+</div>
+
+#### Sendo:
+1. Revisar Feedback e Fazer Mudanças Adicionais:
+    + Os mantenedores do projeto original revisarão seu PR e poderão solicitar mudanças. Faça as mudanças solicitadas na mesma branch do PR:
+        ```
+        git add .
+        git commit -m "Endereça feedback do PR"
+        git push origin minha-nova-funcionalidade
+        ```
+2. Sincronizar com o Repositório Original:
+    + Se o repositório original tiver novas mudanças, você deve mantê-lo atualizado no seu fork:
+        ```
+        git fetch upstream
+        git checkout minha-nova-funcionalidade
+        git rebase upstream/main
+        git push origin minha-nova-funcionalidade --force
+        ```
+3. Resolução de Conflitos:
+    + Se houver conflitos durante o rebase, resolva-os manualmente, adicione os arquivos corrigidos e continue o rebase:
+        ```
+        git add .
+        git rebase --continue
+        git push origin minha-nova-funcionalidade --force
+        ```
+4. Fechar ou Mesclar o PR:
+    + Após aprovação, o mantenedor do projeto original pode mesclar seu PR. Caso seu PR não seja mais necessário, você pode fechá-lo.
+
+5. Por fim, excluir a Branch local e remota:
+    + Após o PR ser mesclado, você pode excluir a branch local e remota para manter seu repositório limpo:
+        ```
+        git branch -d minha-nova-funcionalidade
+        git push origin --delete minha-nova-funcionalidade
+        ```
+
+### Revisão de código e merge de pull requests
+
+#### Além de todo o processo citado do pull request, existe a necessidade da revisão de código. Pois, revisão de código e o merge de pull requests são etapas cruciais no fluxo de trabalho colaborativo em Git, assegurando a qualidade e a integridade do código antes que ele seja integrado ao repositório principal.
+
+<div align="center">
+    <img width= "60%" src= "assets\images\PR_review_process.png">
+</div>
+
+#### Onde: 
++ Os revisores designados recebem uma notificação sobre um novo pull request (PR).
++ Revise seu código: 
+    + Certifique-se de que o código faz o que é esperado e resolve o problema descrito.
+    + Verifique a legibilidade, organização, aderência às convenções de codificação e boas práticas.
+    + Confirme se há testes adequados para as mudanças e se todos os testes passam.
+    + Avalie se o código introduz vulnerabilidades de segurança ou problemas de performance.
++ E por fim, se o código estiver bom, aprove o PR. No GitHub, marque a revisão como **_"Approved"_**.
+
+#### Merge de Pull Requests
+Existem ainda no GitHub, diferentes opções de merge. Sendo:
++ **Merge Commit**: Cria um commit de merge que une as duas branches.
++ **Squash and Merge**: Condensa todos os commits do PR em um único commit antes de mesclá-los.
++ **Rebase and Merge**: Reaplica os commits do PR na base da branch de destino, criando um histórico linear.
+<div align="center">
+    <img width= "60%" src= "assets\images\merge-types.png">
+</div>
+
+### Por fim, Resolvendo Conflitos:
+#### Resolver conflitos de merge é uma parte essencial do trabalho com Git, especialmente em ambientes de desenvolvimento colaborativo. Conflitos de merge ocorrem quando há mudanças concorrentes nas mesmas partes de um arquivo em diferentes branches.
+#### E como funciona esse passo-a-passo?
+
++ Primeiro, como perceber quando ocorrem?
+    + Conflitos geralmente ocorrem durante operações de merge (git merge), rebase (git rebase) ou pull (git pull) quando Git não consegue automaticamente reconciliar mudanças concorrentes.
+
+    <div align="center">
+        <img width= "60%" src= "assets\images\conflictExample.png">
+    </div>
+
++ Identifique-os:
+    + Quando um conflito ocorre, o Git interrompe o processo de merge ou rebase e marca os arquivos conflitantes. Você verá mensagens como estas:
+        ```
+        Auto-merging arquivo-exemplo.txt
+        CONFLICT (content): Merge conflict in arquivo-exemplo.txt
+        Automatic merge failed; fix conflicts and then commit the result.
+        ```
++ E como resolver?
+    + 1. Listar Arquivos Conflitantes: use **_git status_** para listar os arquivos que estão em conflito:
+    + 2. Abra os arquivos marcados como conflitantes. O Git insere marcadores especiais no arquivo para indicar as áreas conflitantes.
+    + 3. Edite os arquivos para resolver os conflitos. Remova os marcadores de conflito.
+    + 4. Por fim, após resolver o conflito adicione-o à área de preparação:
+        ```
+        git add arquivo-exemplo.txt
+        ```
+    + 5. E finalize o Merge ou Rebase:
+        + Se estiver em merge:
+        ```
+        git commit -m "Resolve conflitos durante o merge da branch-merge"
+        ```
+        + Se estiver em rebase:
+        ```
+        git rebase --continue
+        ```
+## Funcionalidades Avançadas
+
+### GitHub Actions: automatizando fluxos de trabalho
+
+#### Resumidamente, o GitHub Actions consiste em uma ferramenta de automação que permite a criação  de fluxos de trabalho personalizados diretamente no repositório do GitHub. Com ela, é possível automatizar tarefas como CI/CD (integração contínua e entrega contínua), testes, deploys e muito mais.
