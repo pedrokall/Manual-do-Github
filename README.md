@@ -11,7 +11,7 @@
          
 ## Introdução ao GitHub
 
-### O que é o GitHub
+### O que é o GitHub?
 
 <p align="justify">
 GitHub é uma plataforma de hospedagem de código-fonte que permite o controle de versão usando o Git. Ele facilita a colaboração em projetos de software, permitindo que desenvolvedores de todo o mundo trabalhem juntos de maneira eficiente.
