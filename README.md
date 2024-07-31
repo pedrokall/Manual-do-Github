@@ -8,9 +8,7 @@
     </tr>
   </table>
 </div>
-
-
-                 
+         
 ## Introdução ao GitHub
 
 ### O que é o GitHub?
@@ -66,3 +64,68 @@ E hoje o GitHub consiste em uma plataforma robusta para desenvolvimento de softw
 4. Verifique seu e-mail e complete a configuração da conta.
 
 ### Instalando o Git e Configurando no GitHub
+
+#### 1. Instalação do Git 
+
++ Caso utilize o Windows, acesse o site oficial do [Git](https://git-scm.com/)
+
+<h1 align="center">
+    <img alt= "gitDownload" title="gitDownload" src="assets\gifs\gitDowload.gif"/>
+</h1>
+
++ No MacOS use: 
+```
+brew install git
+```
+
++ No Linux: use o gerenciador de pacotes da sua distribuição ou para Devian/Ubuntu:
+```
+sudo apt install git
+```
+
+#### 2. Configuração Inicial:
+
++ Abra um Git Bash e configure seu usuário Git em seu sistema do seguinte modo:
+```
+git config --global user.name "Seu Nome"
+git config --global user.email "seuemail@example.com"
+```
+
+#### 3. Criando uma chave SSH:
+
++ É uma boa prática o usuário possuir uma **_SSH key_**, que pode ser criada da seguinte maneira:
+    + Selecione a pasta desejada para salvar sua **key**, comum por ser a pasta do usuário do sistema, e então abra o Git Bash.
+    + No Git Bash execute a seguinte linha de comando, substituindo o email usado no exemplo pelo seu endereço de email GitHub.
+    ```
+    ssh-keygen -t ed25519 -C "your_email@example.com"
+    ```
+    + No prompt, digite uma frase secreta segura. Se não desejar uma frase secreta apenas pressione _enter_ para continuar e gerar sua **key**
+    ```
+    > Enter passphrase (empty for no passphrase): [Type a passphrase]
+    > Enter same passphrase again: [Type passphrase again]
+    ```
+    + Por fim, será gerado o endereço de sua **SSH** e ao acessar as configurações em seu perfil do GitHub, acesse a aba  SSH and GPG keys e adicione uma nova **_SSH Key_**
+        <div class="row">
+        <img width= "40%" height = "auto" alt= "repository" title="repository" src="assets\gifs\siteOption.gif"/>&nbsp;
+        <img width= "40%" height = "auto" alt= "repository" title="repository" src="assets\gifs\newSSH.gif"/>
+        </div>
+    + Adicione um título à sua **Key** e o texto gerado no espaço requisitado.
+
+
+
+
+### Primeiros passos: criando e clonando repositórios
+
+#### 1. Criando um Repositório: 
++ Agora já logado, no GitHub, clique em **_New Repository_**.
+
+<h1 align="center">
+    <img alt= "repository" title="repository" src="assets\gifs\repository.gif"/>
+</h1>
+
++ Dê um nome ao repositório e clique em **_Create repository_**.
+
+#### 2. Clonando um Repositório:
+
++ Para clonar um repositório o usuário pode escolher se clonará por HTTPS ou usando uma chave SSH, se tiver configurado em seu sistema uma chave SSH, é um método mais recomendado.
+
