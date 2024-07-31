@@ -1,8 +1,14 @@
 
-<div style="display: flex; align-items: center; background-color: #ffffff; padding: 10px; border-radius: 3px; width: fit-content;">
-  <span style="margin-right: 12px; font-weight: bold; color: #000000; font-size: 20px;">Manual do GitHub</span>
-  <img src="https://cdn.jsdelivr.net/npm/devicon/icons/github/github-original.svg" alt="GitHub Logo" width="50" height="50">
-</div>
+<table style="border: none;">
+  <tr>
+    <td style="padding: 10px; background-color: #f0f0f0; border-radius: 5px;">
+      <span style="font-weight: bold; color: #000000; font-size: 20px;">Manual do GitHub</span>
+    </td>
+    <td style="padding: 10px; background-color: #f0f0f0; border-radius: 5px;">
+      <img src="https://cdn.jsdelivr.net/npm/devicon/icons/github/github-original.svg" alt="GitHub Logo" width="40" height="40">
+    </td>
+  </tr>
+</table>
                  
 ## Introdução ao GitHub
 
