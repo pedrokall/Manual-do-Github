@@ -380,6 +380,15 @@ Existem ainda no GitHub, diferentes opções de merge. Sendo:
         ```
 ## Funcionalidades Avançadas
 
-### GitHub Actions: automatizando fluxos de trabalho
+<div align="left">
+  <table>
+    <tr>
+      <td style="background-color: #00FFFF; padding: 10px; border-radius: 5px;">
+        <span style="color: #000000; font-size: 20px;">GitHub Actions</span>
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/githubactions/githubactions-original.svg" alt="GitHub Logo" width="40" height="40" style="vertical-align: middle; margin-left: 10px;">
+      </td>
+    </tr>
+  </table>
+</div>
 
 #### Resumidamente, o GitHub Actions consiste em uma ferramenta de automação que permite a criação  de fluxos de trabalho personalizados diretamente no repositório do GitHub. Com ela, é possível automatizar tarefas como CI/CD (integração contínua e entrega contínua), testes, deploys e muito mais.
