@@ -67,7 +67,7 @@ E hoje o GitHub consiste em uma plataforma robusta para desenvolvimento de softw
 
 #### 1. Instalação do Git 
 
-+ Caso utilize o Windows, acesse o site oficial do [Git](https://git-scm.com/)
++ Caso utilize o Windows, acesse o site oficial do [Git](https://git-scm.com/) <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-plain-wordmark.svg" alt="Git" width="50" height="50">
 
 <h1 align="center">
     <img alt= "gitDownload" title="gitDownload" src="assets\gifs\gitDowload.gif"/>
@@ -392,3 +392,93 @@ Existem ainda no GitHub, diferentes opções de merge. Sendo:
 </div>
 
 #### Resumidamente, o GitHub Actions consiste em uma ferramenta de automação que permite a criação  de fluxos de trabalho personalizados diretamente no repositório do GitHub. Com ela, é possível automatizar tarefas como CI/CD (integração contínua e entrega contínua), testes, deploys e muito mais.
+
+<div align="center">
+        <img width= "80%" src= "assets\images\githubActions.png">
+</div>
+
++  É composto pela estrutura básica de um Workflow, onde:
+    + Workflows do GitHub Actions são definidos em arquivos YAML que ficam dentro do diretório .github/workflows no seu repositório.
++ Um exemplo de Workflow:
+    ```
+    name: CI
+
+    on: [push]
+
+    jobs:
+        build:
+            runs-on: ubuntu-latest
+
+            steps:
+            - name: Check out code
+            uses: actions/checkout@v2
+
+            - name: Set up Node.js
+            uses: actions/setup-node@v2
+            with:
+                node-version: '14'
+
+            - name: Install dependencies
+            run: npm install
+
+            - name: Run tests
+            run: npm test
+    ```
+
+#### Funcionalidades Avançadas
++ Além do básico, GitHub Actions oferece diversas funcionalidades avançadas:
+
+    <div align="center">
+            <img width= "80%" src= "assets\images\secrets.png">
+    </div>
+
+    + 🔐 Secrets: Armazene informações sensíveis, como tokens de acesso, e utilize-as nos workflows.
+    + 📈 Matrizes de Jobs: Execute jobs em diferentes ambientes ou com diferentes configurações.
+    + 🎯 Ações Personalizadas: Crie suas próprias ações para reutilizar em múltiplos workflows.
+    + 💾 Cache: Utilize cache para otimizar os tempos de build.
+
+### Issues e Projects: Gerenciamento de Tarefas e Projetos
+
+<div align="center">
+    <img width= "80%" src= "assets\images\gitHubIssues.png">
+</div>
+
+#### Issues: São usadas para rastrear bugs, melhorias, tarefas ou quaisquer itens que precisem ser tratados. Podem ser organizadas com labels, milestones e assignees.
+
+#### Projects: Ferramenta de gerenciamento de projetos que permite organizar issues, pull requests e notas em um quadro Kanban ou em uma tabela.
+
++ Exemplo de Uso:
+    + Criando uma Issue:
+        +   1. Vá para a aba "Issues" no repositório.
+            2. Clique em "New Issue".
+            3. Preencha o título e a descrição, e adicione labels, assignees e milestones conforme necessário.
+    + Criando um Project:
+        +   1. Vá para a aba "Projects".
+            2. Clique em "New Project".
+            3. Escolha um template (Board ou Table).
+            4. Adicione cards que representam issues, pull requests ou notas.
+
+### GitHub Pages: criando sites estáticos com GitHub
+
+#### O GitHub Pages é um serviço oferecido pelo GitHub que permite criar e hospedar sites estáticos diretamente de um repositório GitHub. É uma ferramenta poderosa para desenvolvedores que desejam publicar sites simples, como portfólios, documentações de projetos, blogs e outros tipos de conteúdos estáticos
+
++ Possui uma configuração básica, sendo o passo-a-passo:
+    1. Crie um repositório com o nome ``<username>.github.io``.
+    2. Adicione os arquivos do seu site (HTML, CSS, JavaScript).
+    3. Vá para a aba **_Settings_** do repositório.
+    4. Na seção **_GitHub Pages_**, escolha a branch a ser publicada (geralmente main ou gh-pages).
+    5. Por fim, acesse o site em ``https://<username>.github.io``.
+    <div align="center">
+        <img width= "80%" src= "assets\images\gitHubPages.png">
+    </div>
+
+### Integrações e APIs
+
+#### Outra funcionalidade avançada que o GitHub oferece, são diversas integrações com ferramentas externas e APIs que permitem automação e a personalização do fluxo de trabalho.
+
+
+
+            
+
+
+
