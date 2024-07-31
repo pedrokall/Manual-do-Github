@@ -106,8 +106,8 @@ git config --global user.email "seuemail@example.com"
     ```
     + Por fim, será gerado o endereço de sua **SSH** e ao acessar as configurações em seu perfil do GitHub, acesse a aba  SSH and GPG keys e adicione uma nova **_SSH Key_**
         <div class="row">
-        <img width= "40%" height = "auto" alt= "repository" title="repository" src="assets\gifs\siteOption.gif"/>&nbsp;
-        <img width= "40%" height = "auto" alt= "repository" title="repository" src="assets\gifs\newSSH.gif"/>
+            <img width= "40%" height = "auto" alt= "siteOption" title="siteOption" src="assets\gifs\siteOption.gif"/>&nbsp;
+            <img width= "40%" height = "auto" alt= "newSSH" title="newSSH" src="assets\gifs\newSSH.gif"/>
         </div>
     + Adicione um título à sua **Key** e o texto gerado no espaço requisitado.
 
@@ -127,5 +127,114 @@ git config --global user.email "seuemail@example.com"
 
 #### 2. Clonando um Repositório:
 
-+ Para clonar um repositório o usuário pode escolher se clonará por HTTPS ou usando uma chave SSH, se tiver configurado em seu sistema uma chave SSH, é um método mais recomendado.
++ Para clonar um repositório o usuário pode escolher se clonará por **HTTPS** ou usando uma chave **SSH**, se tiver configurado em seu sistema uma chave **SSH**, é um método mais recomendado.
++ Copie a **URL** fornecida pelo repositório:
+    <h1 align="center">
+        <img width= "50%" height = "auto" alt= "repoClone" title="repoClone" src="assets\gifs\repoClone.gif"/>
+    </h1>
++ E por fim, em sua pasta previamente criada e selecionada, a qual deseja clonar o repositório, execute o Git Bash e o seguinte comando:
+```
+git clone https://github.com/usuario/repositorio.git
+```
 
+## Comandos Básicos do Git
+
+### Estrutura de um repositório Git
+
+<p align="justify">
+ Um repositório Git contém todos os arquivos e histórico de mudanças de um projeto e a estrutura de um repositório Git é organizada de forma a gerenciar versões do código e facilitar o trabalho colaborativo.
+ </p>
+
+#### Sendo assim a estrutura básica de um Repositório Git consiste em:
+1. Diretório de Trabalho (Working Directory):
+    + Este é o local onde você trabalha com os arquivos e diretórios do seu projeto. É aqui que você faz alterações no código.
+2. Área de Preparação (Staging Area ou Index):
+    + É um espaço intermediário onde as alterações são armazenadas antes de serem confirmadas (committed). Você adiciona arquivos à área de preparação.
+3. Repositório Local (.git):
+    + É um diretório oculto dentro do diretório do seu projeto que contém todos os dados do repositório Git, incluindo a história completa das mudanças, configurações e objetos Git.
+4. Repositório Remoto:
+    + É uma versão do seu repositório armazenada em um servidor remoto, como GitHub, GitLab ou Bitbucket. Os repositórios remotos são usados para colaborar com outros desenvolvedores.
+
+### Iniciando um repositório
+#### Para iniciar um Repositório, é necessário um:
+ ```
+ git init
+ ```
+#### na devida pasta selecionada pelo usuário.
+
+#### Os principais comandos em um repositório constam com os seguintes comando de terminal:
++ Adicionar arquivos:
+    ```
+    git add .
+    ```
++ Commitar mudanças:
+    ```
+    git commit -m "Mensagem do commit"
+    ```
++ Enviar para o repositório remoto:
+    ```
+    git push origin main
+    ```
++ E, por fim, puxar mudanças do repositório remoto:
+    ```
+    git pull
+    ```
+### Gerenciamento de **_Branches_**
+
+#### Uma prática fundamental para o desenvolvimento de software colaborativo e organizado consiste no gerenciamento de **_branches_**. Pois, permitem que você trabalhe em diferentes funcionalidades, correções de bugs ou experimentos isoladamente, sem afetar o código principal do projeto até que estejam prontos para serem integrados.
+
+#### Conceitos Básicos:
+1. Branch (Ramificação):
+    + Uma branch é uma linha de desenvolvimento separada dentro do repositório. O Git cria uma branch chamada main ou master por padrão, que geralmente é a linha principal de desenvolvimento.
+2. Head:
+    + **HEAD** é um ponteiro especial que aponta para o commit atual ou branch atual em que você está trabalhando.
+
+#### Operações Comuns com Branches:
+1. Criar e Mudar para uma Nova Branch:
+    + Para criar e alternar para uma nova branch:
+        ```
+        git checkout -b <nome-da-branch>
+        ```
+    + Ou com o novo comando switch:
+        ```
+        git switch -c <nome-da-branch>
+        ```
+2. Mesclar Branches (Merge):
+    + Para integrar as mudanças de uma branch em outra, use:
+        ```
+        git merge <nome-da-branch>
+        ```
+        Isso mescla as mudanças da <nome-da-branch> na branch atual.
+3. Rebase:
+    + O rebase aplica suas mudanças sobre a base de outra branch, criando um histórico linear:
+        ```
+        git rebase <nome-da-branch>
+        ```
+4. Excluir uma branch:
+    + Após uma branch ser mesclada, você pode excluí-la:
+        ```
+        git branch -d <nome-da-branch>
+        ```
+    + E para forçar a exclusão (se a branch não foi mesclada), cuidado pode ser um comando perigoso:
+        ```
+        git branch -D <nome-da-branch>
+        ```
+
+#### Gerenciar branches eficientemente ajuda a manter um histórico de mudanças limpo e facilita a colaboração entre vários desenvolvedores, permitindo a integração contínua e o desenvolvimento ágil.
+
+## Trabalho Colaborativo
+
+### Clonando e forkeando repositórios
+Como já demonstrado o trabalho colaborativo por repositórios consiste na clonagem do repositório por meio de um git clone e por forks.
+
+Forkar um repositório é uma pratica bem comum. Pois, permite colaborar em projetos de código aberto, trabalhar em funcionalidades e correções de forma isolada, submeter pull requests, explorar e aprender com o código de outros desenvolvedores, personalizar projetos para uso específico e criar um backup do projeto. É uma prática essencial para contribuir sem afetar o repositório original e manter uma cópia própria para desenvolvimento e testes.
+
+#### Como forkar um repositório? 
+1. Fork no GitHub:
+    + Vá até o repositório que você deseja forkar.
+    + Clique no botão "Fork" no canto superior direito da página.
+    + Escolha a conta onde deseja criar o fork (se você tiver acesso a várias organizações).
+    <div class="row">
+            <img width= "40%" height = "auto" alt= "siteOption" title="siteOption" src="assets\gifs\forking.gif"/>&nbsp;
+            <img width= "42%" height = "auto" alt= "newSSH" title="newSSH" src="assets\gifs\creatingFork.gif"/>
+        </div>
