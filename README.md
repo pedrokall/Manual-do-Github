@@ -1,5 +1,5 @@
 
-<div style="display: flex; align-items: center; background-color: #f0f0f0; padding: 10px; border-radius: 3px; width: fit-content;">
+<div style="display: flex; align-items: center; background-color: #ffffff; padding: 10px; border-radius: 3px; width: fit-content;">
   <span style="margin-right: 12px; font-weight: bold; color: #000000; font-size: 20px;">Manual do GitHub</span>
   <img src="https://cdn.jsdelivr.net/npm/devicon/icons/github/github-original.svg" alt="GitHub Logo" width="50" height="50">
 </div>
