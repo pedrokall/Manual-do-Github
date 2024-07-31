@@ -476,9 +476,131 @@ Existem ainda no GitHub, diferentes opções de merge. Sendo:
 
 #### Outra funcionalidade avançada que o GitHub oferece, são diversas integrações com ferramentas externas e APIs que permitem automação e a personalização do fluxo de trabalho.
 
+#### Sendo as principais integrações: 
++ CI/CD: Jenkins, CircleCI, Travis CI.
++ Gerenciamento de Projetos: Trello, Jira.
++ Comunicação: Slack, Microsoft Teams.
+
+#### O GitHub possui duas principais APIs:
++ REST API
++ GraphQL API
+
+#### Muito usadas para automação de criação de issues, onde podemos usar como exemplo a automatização da criação de issues em um repositório GitHub baseado em um evento externo, como um erro reportado em um sistema de monitoramento.
++ Exemplificando em Python uma utilização da REST API:
+    ```
+    import requests
+
+    # Configurações
+    token = 'seu_token_de_acesso'
+    repo = 'usuario/repo'
+    url = f'https://api.github.com/repos/{repo}/issues'
+    headers = {
+        'Authorization': f'token {token}',
+        'Accept': 'application/vnd.github.v3+json'
+    }
+
+    # Dados da issue
+    issue_data = {
+        'title': 'Erro no sistema de monitoramento',
+        'body': 'Descrição detalhada do erro...',
+        'labels': ['bug']
+    }
+
+    # Criar a issue
+    response = requests.post(url, headers=headers, json=issue_data)
+    if response.status_code == 201:
+        print('Issue criada com sucesso.')
+    else:
+        print(f'Erro ao criar a issue: {response.content}')
+    ```
+#### Além também de utilizações como:
++ Extração de Dados de Contribuidores
++ Integração com Ferramentas de CI/CD
++ Monitoramento de Pull Requests
++ Gestão de Repositórios
+
+<div align="center">
+    <img width= "80%" src= "assets\images\apiExample.png">
+</div>
+
+## 🤝 Boas práticas e Dicas
+
+### Escrevendo bons commits e mensagens
+1. Ao fazer um commit é sempre necessário a adição de uma mensagem, desse modo precisamos de mensagens claras e objetivas:
+    + Resuma: A primeira linha deve resumir a mudança em 50 caracteres ou menos.
+    + Desenvolva: Use o corpo da mensagem para explicar o "porquê" e não apenas o "o que".
+    + Use Verbos no Imperativo: Exemplo: "Adicione função de login".
+2. Realize commits pequenos e frequentes:
+    + Commits frequentemente e com pequenas mudanças são mais indicados, pois outras pessoas os analisarão.
+    + Isso facilita o rastreamento de erros e revisões de código.
+3. Referencie Issues e Pull Requests:
+    + Utilize palavras-chave como "fixes #issue-number" para vincular automaticamente commits a problemas ou pull requests.
+4. Siga um Padrão de Mensagem:
+    + É comum a adoção de uma convenção de commits, como a [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/), para uniformidade.
+    <div align="center">
+        <img width= "80%" src= "assets\images\conventional.png">
+    </div>
+
+### Estrutura Organizacional de Repositórios
+#### Um repositório pode ser acessado por milhares ou até milhões de pessoas, tenha em mente isso. Logo, é necessário que seu repositório possua uma divisão lógica.
++ Organize o código em diretórios que façam sentido para o projeto (e.g., src, tests, docs).
++ Inclua um arquivo README detalhado no repositório principal e subdiretórios se necessário, descrevendo seu propósito.  
++ Mantenha uma pasta docs para documentação extensa, se aplicável.
++ Armazene scripts em uma pasta scripts ou similar.
++ Utilize pastas de configuração (config) para arquivos de configuração.
+
+### Segurança e Permissões
+
+#### Gerenciamento de Acesso:
+
+1. Controle de forma cuidadosa quem tem acesso de escrita e leitura ao repositório.
+2. Utilize equipes e permissões no GitHub para gerenciar acessos.
+
+#### Segredos e Credenciais:
+
+1. Nunca inclua segredos ou credenciais diretamente no repositório.
+2. Use ferramentas como GitHub Secrets para armazenar informações sensíveis.
+
+#### Verificação de Código:
+
+1. Configure revisões de pull request obrigatórias.
+2. Utilize ferramentas de análise estática e linters para manter a qualidade do código.
+
+#### Branch Protection:
+
+1. Proteja branches importantes, como main ou master, para impedir push direto.
+2. Requer reviews e testes automáticos antes de permitir merges.
+
+### Uso de Templates e Arquivos de Configuração
+
+1. .gitignore:
+    + Inclua um arquivo .gitignore para excluir arquivos desnecessários (e.g., binários, builds, configurações locais).
+
+2. README.md:
+    + Escreva um README claro e informativo com instruções de instalação, uso, e contribuição.
+    + Inclua badges de status de build, cobertura de testes, e outras métricas importantes.
+    
+3. Templates de Issues e Pull Requests:
+    + Crie templates para issues e pull requests para padronizar o feedback e submissões.
+    + Utilize .github/ISSUE_TEMPLATE e .github/PULL_REQUEST_TEMPLATE.
+
+4. Contributing Guidelines:
+    + Adicione um arquivo CONTRIBUTING.md com diretrizes para contribuidores.
+
+5. Licenciamento:
+    + Inclua um arquivo LICENSE para especificar os termos sob os quais o código pode ser usado.
 
 
-            
+# Referências
+### Este manual foi escrito para ajudar possíveis novos usuários e usuários intermediários do GitHub. A fim de facilitar de maneira didática o uso, com base nas seguintes referências.
++ [Conventional Commits Specification](https://www.conventionalcommits.org/en/v1.0.0/)
++ [Git Documentation](https://git-scm.com/doc)
++ [GitHub Docs](https://docs.github.com/pt)
++ [Open Source Guides](https://opensource.guide/best-practices/)
++ [GitHub Features](https://github.com/features)
 
+## Autores
+| [<img src="assets/images/profile.jpg" width=115 > <br> <sub> Pedro Kall </sub>](https://github.com/pedrokall) | [<img src="assets\images\lucasProfile.png" width=110 > <br> <sub> Pedro Kall </sub>](https://github.com/LuscaLN) | 
+| :---: | :---: |
 
 
